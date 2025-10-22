@@ -1,23 +1,37 @@
-import "dotenv/config";
-import express from "express";
+import express, { type Express } from "express";
 import cors from "cors";
-import { handleDemo } from "./routes/demo";
+import path from "path";
+import { fileURLToPath } from "url";
+import { handleSurvey } from "./routes/survey";
 
-export function createServer() {
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+export function createServer(): Express {
   const app = express();
 
-  // Middleware
   app.use(cors());
   app.use(express.json());
-  app.use(express.urlencoded({ extended: true }));
+  app.use(express.urlencoded({ extended: false }));
 
-  // Example API routes
-  app.get("/api/ping", (_req, res) => {
-    const ping = process.env.PING_MESSAGE ?? "ping";
-    res.json({ message: ping });
+  // Serve static files from the spa directory
+  const spaPath = path.join(__dirname, "../dist/spa");
+  app.use(express.static(spaPath));
+
+  // API routes
+  app.post("/api/survey", handleSurvey);
+
+  // Serve index.html for all other routes (SPA fallback)
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(spaPath, "index.html"));
   });
-
-  app.get("/api/demo", handleDemo);
 
   return app;
 }
+
+const server = createServer();
+const port = process.env.PORT || 3000;
+
+server.listen(port, () => {
+  console.log(`Server running on port ${port}`);
+});
