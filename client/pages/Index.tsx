@@ -75,9 +75,12 @@ export default function Index() {
                   Start your quote
                   <ArrowRight className="w-5 h-5" />
                 </Link>
-                <button className="inline-flex items-center justify-center gap-2 border-2 border-blue-600 text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors">
+                <Link
+                  to="/why-broker"
+                  className="inline-flex items-center justify-center gap-2 border-2 border-blue-600 text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors"
+                >
                   Why work with a broker?
-                </button>
+                </Link>
               </div>
             </div>
           </div>
