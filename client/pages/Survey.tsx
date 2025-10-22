@@ -236,7 +236,7 @@ export default function Survey() {
                 <button
                   type="submit"
                   disabled={!isFormValid || isLoading}
-                  className="w-full bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                  className="w-full bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-700 hover:shadow-lg transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:shadow-none flex items-center justify-center gap-2"
                 >
                   {isLoading ? (
                     <>
@@ -270,7 +270,7 @@ export default function Survey() {
               </p>
               <a
                 href="/"
-                className="inline-flex items-center justify-center gap-2 bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+                className="inline-flex items-center justify-center gap-2 bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 hover:shadow-lg transition-all duration-200 hover:scale-105"
               >
                 Back to Home
               </a>
@@ -290,7 +290,7 @@ export default function Survey() {
                   setStep("form");
                   window.scrollTo({ top: 0, behavior: "smooth" });
                 }}
-                className="inline-flex items-center justify-center gap-2 bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+                className="inline-flex items-center justify-center gap-2 bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 hover:shadow-lg transition-all duration-200 hover:scale-105"
               >
                 Back to form
               </button>
