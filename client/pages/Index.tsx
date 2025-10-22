@@ -70,14 +70,14 @@ export default function Index() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
                   to="/survey"
-                  className="inline-flex items-center justify-center gap-2 bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+                  className="inline-flex items-center justify-center gap-2 bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 hover:shadow-lg transition-all duration-200 hover:scale-105"
                 >
                   Start your quote
-                  <ArrowRight className="w-5 h-5" />
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </Link>
                 <Link
                   to="/why-broker"
-                  className="inline-flex items-center justify-center gap-2 border-2 border-blue-600 text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors"
+                  className="inline-flex items-center justify-center gap-2 border-2 border-blue-600 text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 hover:border-blue-700 hover:text-blue-700 transition-all duration-200 hover:shadow-lg"
                 >
                   Why work with a broker?
                 </Link>
@@ -117,7 +117,7 @@ export default function Index() {
         </section>
 
         {/* Quick Survey Section */}
-        <section className="bg-blue-50 py-20 md:py-28">
+        <section className="bg-gradient-to-br from-blue-50 to-indigo-50 py-20 md:py-28">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-2xl mx-auto text-center">
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
@@ -129,7 +129,7 @@ export default function Index() {
               </p>
               <Link
                 to="/survey"
-                className="inline-flex items-center justify-center gap-2 bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+                className="inline-flex items-center justify-center gap-2 bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 hover:shadow-lg transition-all duration-200 hover:scale-105"
               >
                 Get started
                 <ArrowRight className="w-5 h-5" />
@@ -179,7 +179,7 @@ export default function Index() {
             </p>
             <Link
               to="/survey"
-              className="inline-flex items-center justify-center gap-2 bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors"
+              className="inline-flex items-center justify-center gap-2 bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 hover:shadow-xl transition-all duration-200 hover:scale-105"
             >
               Start your quote
               <ArrowRight className="w-5 h-5" />

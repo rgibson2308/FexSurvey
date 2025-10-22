@@ -86,7 +86,7 @@ export default function About() {
             </p>
             <Link
               to="/survey"
-              className="inline-flex items-center justify-center gap-2 bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+              className="inline-flex items-center justify-center gap-2 bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 hover:shadow-lg transition-all duration-200 hover:scale-105"
             >
               Start your quote
               <ArrowRight className="w-5 h-5" />
