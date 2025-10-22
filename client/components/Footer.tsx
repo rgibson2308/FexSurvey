@@ -91,7 +91,10 @@ export default function Footer() {
               </a>
             </p>
             <p className="text-sm text-gray-400">
-              24/7 365
+              24/7 a week
+            </p>
+            <p className="text-sm text-gray-400">
+              365 days a year
             </p>
           </div>
         </div>

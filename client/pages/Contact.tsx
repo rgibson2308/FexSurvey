@@ -51,7 +51,10 @@ export default function Contact() {
                   <div>
                     <p className="text-gray-600 text-sm">Hours</p>
                     <p className="text-gray-900 font-semibold">
-                      24/7 365
+                      24/7 a week
+                    </p>
+                    <p className="text-gray-900 font-semibold">
+                      365 days a year
                     </p>
                   </div>
                 </div>
