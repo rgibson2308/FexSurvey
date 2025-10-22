@@ -8,6 +8,7 @@ export default function Header() {
   const navLinks = [
     { href: "/", label: "Home" },
     { href: "/survey", label: "Survey" },
+    { href: "/why-broker", label: "Why a Broker?" },
     { href: "/products", label: "Products" },
     { href: "/about", label: "About" },
     { href: "/contact", label: "Contact" },

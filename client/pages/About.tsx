@@ -43,28 +43,37 @@ export default function About() {
             <h2 className="text-3xl font-bold text-gray-900 mt-12 mb-4">
               Products I specialize in
             </h2>
-            <ul>
+            <ul className="space-y-3">
               <li>
-                <strong>Indexed Universal Life (IUL):</strong> Flexible coverage
-                with potential cash value growth tied to market indexes (with
-                downside protection).
+                <Link to="/products" className="text-blue-600 hover:text-blue-800 hover:underline transition-colors">
+                  <strong>Indexed Universal Life (IUL):</strong>
+                </Link>
+                {" "}Flexible coverage with potential cash value growth tied to market indexes (with downside protection).
               </li>
               <li>
-                <strong>Annuities:</strong> Options for protected accumulation
-                or guaranteed income you can't outlive.
+                <Link to="/products" className="text-blue-600 hover:text-blue-800 hover:underline transition-colors">
+                  <strong>Annuities:</strong>
+                </Link>
+                {" "}Options for protected accumulation or guaranteed income you can't outlive.
               </li>
               <li>
-                <strong>Mortgage Protection:</strong> Coverage designed to help
-                safeguard your home for your family.
+                <Link to="/products" className="text-blue-600 hover:text-blue-800 hover:underline transition-colors">
+                  <strong>Mortgage Protection:</strong>
+                </Link>
+                {" "}Coverage designed to help safeguard your home for your family.
               </li>
               <li>
-                <strong>Final Expense:</strong> Simplified policies intended to
-                cover funeral and related expenses.
+                <Link to="/products" className="text-blue-600 hover:text-blue-800 hover:underline transition-colors">
+                  <strong>Final Expense:</strong>
+                </Link>
+                {" "}Simplified policies intended to cover funeral and related expenses.
               </li>
             </ul>
             <p>
-              Not sure what you need? Start with the quick survey and I'll
-              recommend a path.
+              Not sure what you need?{" "}
+              <Link to="/survey" className="text-blue-600 hover:text-blue-800 hover:underline transition-colors">
+                Start with the quick survey and I'll recommend a path.
+              </Link>
             </p>
           </div>
 

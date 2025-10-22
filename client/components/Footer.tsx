@@ -50,22 +50,22 @@ export default function Footer() {
             <h4 className="font-semibold text-white mb-4">Services</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <a href="#" className="hover:text-white transition-colors">
+                <a href="/products" className="hover:text-white transition-colors">
                   Indexed Universal Life
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-white transition-colors">
+                <a href="/products" className="hover:text-white transition-colors">
                   Annuities
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-white transition-colors">
+                <a href="/products" className="hover:text-white transition-colors">
                   Mortgage Protection
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-white transition-colors">
+                <a href="/products" className="hover:text-white transition-colors">
                   Final Expense
                 </a>
               </li>
