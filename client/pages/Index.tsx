@@ -40,12 +40,12 @@ export default function Index() {
       author: "Carolina R.",
     },
     {
-      text: "IUL finally made sense after Ryan's walkthrough. Now we have coverage and long-term value.",
-      author: "Ahmed R.",
-    },
-    {
       text: "Fast, clear, and trustworthy. He treated us like family from the first call.",
       author: "Ben & Tasha",
+    },
+    {
+      text: "IUL finally made sense after Ryan's walkthrough. Now we have coverage and long-term value.",
+      author: "Ahmed R.",
     },
   ];
 
@@ -136,7 +136,7 @@ export default function Index() {
 
         {/* Testimonials Section */}
         <section className="py-20 md:py-28">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-center items-center">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 text-center">
               What clients say
             </h2>
@@ -144,7 +144,7 @@ export default function Index() {
               {testimonials.map((testimonial, index) => (
                 <div
                   key={index}
-                  className="bg-white border border-gray-200 rounded-xl p-8"
+                  className="bg-white border border-gray-200 rounded-xl p-8 flex flex-col justify-center items-center"
                 >
                   <div className="flex gap-1 mb-4">
                     {[...Array(5)].map((_, i) => (
