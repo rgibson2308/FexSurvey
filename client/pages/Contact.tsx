@@ -34,11 +34,24 @@ export default function Contact() {
                 </div>
 
                 <div className="flex gap-4">
+                  <Phone className="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" />
+                  <div>
+                    <p className="text-gray-600 text-sm">Phone</p>
+                    <a
+                      href="tel:412-495-2234"
+                      className="text-gray-900 font-semibold hover:text-blue-600 transition-colors"
+                    >
+                      412-495-2234
+                    </a>
+                  </div>
+                </div>
+
+                <div className="flex gap-4">
                   <Clock className="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" />
                   <div>
                     <p className="text-gray-600 text-sm">Hours</p>
                     <p className="text-gray-900 font-semibold">
-                      24/7
+                      24/7 365
                     </p>
                   </div>
                 </div>

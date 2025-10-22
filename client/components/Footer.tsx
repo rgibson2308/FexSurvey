@@ -74,9 +74,24 @@ export default function Footer() {
 
           <div>
             <h4 className="font-semibold text-white mb-4">Contact</h4>
-            <p className="text-sm mb-2">rgibson2308@gmail.com</p>
+            <p className="text-sm mb-2">
+              <a
+                href="mailto:rgibson2308@gmail.com"
+                className="hover:text-white transition-colors"
+              >
+                rgibson2308@gmail.com
+              </a>
+            </p>
+            <p className="text-sm mb-3">
+              <a
+                href="tel:412-495-2234"
+                className="hover:text-white transition-colors"
+              >
+                412-495-2234
+              </a>
+            </p>
             <p className="text-sm text-gray-400">
-              Mon–Fri 9:00am–6:00pm (local)
+              24/7 365
             </p>
           </div>
         </div>
