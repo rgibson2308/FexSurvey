@@ -11,12 +11,11 @@ export default defineConfig(({ mode }) => ({
       allow: ["./client", "./shared"],
       deny: [".env", ".env.*", "*.{crt,pem}", "**/.git/**", "server/**"],
     },
-    middlewareMode: false,
   },
   build: {
     outDir: "dist/spa",
   },
-  plugins: [react()],
+  plugins: [react(), expressPlugin()],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./client"),
@@ -24,3 +23,24 @@ export default defineConfig(({ mode }) => ({
     },
   },
 }));
+
+function expressPlugin(): Plugin {
+  return {
+    name: "express-plugin",
+    apply: "serve",
+    async configureServer(server) {
+      // Dynamically import the server to avoid issues during config load
+      const { createServer } = await import("./dist/server/node-build.mjs").catch(
+        async () => {
+          // If production build doesn't exist, use the source directly
+          const module = await import("./server/index.ts");
+          return module;
+        }
+      );
+      const app = createServer();
+      return () => {
+        server.middlewares.use(app);
+      };
+    },
+  };
+}
