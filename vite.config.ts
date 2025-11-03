@@ -25,22 +25,18 @@ export default defineConfig(({ mode }) => ({
 }));
 
 function expressPlugin(): Plugin {
+  let createServerFn: any;
+
   return {
     name: "express-plugin",
     apply: "serve",
-    async configureServer(server) {
-      // Dynamically import the server to avoid issues during config load
-      const { createServer } = await import("./dist/server/node-build.mjs").catch(
-        async () => {
-          // If production build doesn't exist, use the source directly
-          const module = await import("./server/index.ts");
-          return module;
-        }
-      );
-      const app = createServer();
-      return () => {
+    configureServer(server) {
+      // Import happens after config is loaded
+      import("./server").then(({ createServer }) => {
+        const app = createServer();
         server.middlewares.use(app);
-      };
+      });
+      return () => undefined;
     },
   };
 }
