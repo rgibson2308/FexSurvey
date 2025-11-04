@@ -8,23 +8,28 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 export function createServer(): Express {
-  const app = express();
+  try {
+    const app = express();
 
-  app.use(cors());
-  app.use(express.json());
-  app.use(express.urlencoded({ extended: false }));
+    app.use(cors());
+    app.use(express.json());
+    app.use(express.urlencoded({ extended: false }));
 
-  // Serve static files from the spa directory
-  const spaPath = path.join(__dirname, "../dist/spa");
-  app.use(express.static(spaPath));
+    // Serve static files from the spa directory
+    const spaPath = path.join(__dirname, "../dist/spa");
+    app.use(express.static(spaPath));
 
-  // API routes
-  app.post("/api/survey", handleSurvey);
+    // API routes
+    app.post("/api/survey", handleSurvey);
 
-  // Serve index.html for all other routes (SPA fallback)
-  app.get("*", (req, res) => {
-    res.sendFile(path.join(spaPath, "index.html"));
-  });
+    // Serve index.html for all other routes (SPA fallback)
+    app.get("*", (req, res) => {
+      res.sendFile(path.join(spaPath, "index.html"));
+    });
 
-  return app;
+    return app;
+  } catch (error) {
+    console.error("Error creating server:", error);
+    throw error;
+  }
 }
