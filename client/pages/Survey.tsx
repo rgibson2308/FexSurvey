@@ -39,20 +39,43 @@ export default function Survey() {
     return digits.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   };
 
+  const calculateAgeFromDOB = (dateOfBirth: string): string => {
+    if (!dateOfBirth) return "";
+
+    const birthDate = new Date(dateOfBirth);
+    const today = new Date();
+    let age = today.getFullYear() - birthDate.getFullYear();
+    const monthDiff = today.getMonth() - birthDate.getMonth();
+
+    if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+      age--;
+    }
+
+    return age.toString();
+  };
+
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
     let processedValue = value;
+    const updates: Partial<FormData> = { [name]: processedValue };
 
     // Format coverage amount with commas
     if (name === "coverageAmount") {
       processedValue = formatNumberWithCommas(value);
+      updates[name] = processedValue;
+    }
+
+    // Auto-calculate age from Date of Birth
+    if (name === "dateOfBirth") {
+      const calculatedAge = calculateAgeFromDOB(value);
+      updates.age = calculatedAge;
     }
 
     setFormData((prev) => ({
       ...prev,
-      [name]: processedValue,
+      ...updates,
     }));
   };
 
