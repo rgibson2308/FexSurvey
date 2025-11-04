@@ -57,18 +57,20 @@ export default function Survey() {
     setIsLoading(true);
 
     try {
+      // Prepare FormData for Formspree
+      const formDataToSubmit = new FormData();
+      formDataToSubmit.append("fullName", formData.fullName);
+      formDataToSubmit.append("age", formData.age);
+      formDataToSubmit.append("productInterest", formData.productInterest);
+      formDataToSubmit.append("smoker", formData.smoker);
       // Strip commas from coverageAmount before sending
-      const cleanedData = {
-        ...formData,
-        coverageAmount: formData.coverageAmount.replace(/,/g, ""),
-      };
+      formDataToSubmit.append("monthlyBudget", formData.monthlyBudget);
+      formDataToSubmit.append("coverageAmount", formData.coverageAmount.replace(/,/g, ""));
+      formDataToSubmit.append("whyLooking", formData.whyLooking);
 
-      const response = await fetch("/api/survey", {
+      const response = await fetch("https://formspree.io/f/mjkazygj", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(cleanedData),
+        body: formDataToSubmit,
       });
 
       if (response.ok) {
