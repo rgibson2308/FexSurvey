@@ -11,8 +11,7 @@
     ]
   },
   "scripts": {
-    "dev": "npm run build:server && concurrently \"vite\" \"npm run dev:server:local\" --kill-others -n client,server",
-    "dev:server:local": "PORT=3001 node ./dist/server/node-build.mjs 2>&1",
+    "dev": "vite",
     "build": "npm run build:client && npm run build:server",
     "build:client": "vite build",
     "build:server": "vite build --config vite.config.server.ts",
