@@ -52,21 +52,43 @@ export default function Survey() {
     }));
   };
 
+  const getProductLabel = (value: string): string => {
+    const productMap: Record<string, string> = {
+      iul: "Indexed Universal Life (IUL)",
+      annuities: "Annuities",
+      mortgage: "Mortgage Protection",
+      final: "Final Expense Coverage",
+      term: "Term Life",
+      other: "Other / Not sure",
+    };
+    return productMap[value] || value;
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
 
     try {
+      // Format coverage amount
+      const cleanedCoverageAmount = formData.coverageAmount.replace(/,/g, "");
+
+      // Create formatted message for Formspree
+      const formattedMessage = `
+Full Name: ${formData.fullName}
+Age: ${formData.age}
+Product Interested In: ${getProductLabel(formData.productInterest)}
+Smoker: ${formData.smoker === "yes" ? "Yes" : "No"}
+Monthly Budget (USD): $${formData.monthlyBudget}
+Coverage Amount Looking For (USD): $${cleanedCoverageAmount}
+
+Why Looking for Coverage:
+${formData.whyLooking}`;
+
       // Prepare FormData for Formspree
       const formDataToSubmit = new FormData();
-      formDataToSubmit.append("fullName", formData.fullName);
-      formDataToSubmit.append("age", formData.age);
-      formDataToSubmit.append("productInterest", formData.productInterest);
-      formDataToSubmit.append("smoker", formData.smoker);
-      // Strip commas from coverageAmount before sending
-      formDataToSubmit.append("monthlyBudget", formData.monthlyBudget);
-      formDataToSubmit.append("coverageAmount", formData.coverageAmount.replace(/,/g, ""));
-      formDataToSubmit.append("whyLooking", formData.whyLooking);
+      formDataToSubmit.append("email", "rgibson2308@gmail.com");
+      formDataToSubmit.append("name", formData.fullName);
+      formDataToSubmit.append("message", formattedMessage);
 
       const response = await fetch("https://formspree.io/f/mjkazygj", {
         method: "POST",
