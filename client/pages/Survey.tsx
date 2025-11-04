@@ -93,8 +93,12 @@ export default function Survey() {
 
               <form onSubmit={handleSubmit} className="space-y-8">
                 <div>
-                  <label className="block text-lg font-semibold text-gray-900 mb-3">
-                    Full Name <span className="text-red-500">*</span>
+                  <label className="flex flex-col text-lg font-semibold text-gray-900 mb-3">
+                    Full Name
+                    <span style={{ color: "rgb(239, 68, 68)" }}>
+                      &nbsp;*
+                      <br />
+                    </span>
                   </label>
                   <input
                     type="text"
