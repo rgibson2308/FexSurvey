@@ -166,7 +166,6 @@ export default function Survey() {
                     <option value="annuities">Annuities</option>
                     <option value="mortgage">Mortgage Protection</option>
                     <option value="final">Final Expense Coverage</option>
-                    <option value="whole">Whole Life</option>
                     <option value="term">Term Life</option>
                     <option value="other">Other / Not sure</option>
                   </select>
