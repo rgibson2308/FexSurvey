@@ -11,8 +11,8 @@
     ]
   },
   "scripts": {
-    "dev": "concurrently \"vite\" \"npm run dev:server\" --kill-others",
-    "dev:server": "sleep 2 && PORT=3001 pnpm tsx ./server/index.ts",
+    "dev": "npm run build:server && concurrently \"vite\" \"npm run dev:server\" --kill-others",
+    "dev:server": "sleep 1 && PORT=3001 node dist/server/node-build.mjs",
     "build": "npm run build:client && npm run build:server",
     "build:client": "vite build",
     "build:server": "vite build --config vite.config.server.ts",
