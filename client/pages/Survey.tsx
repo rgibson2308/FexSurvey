@@ -57,12 +57,18 @@ export default function Survey() {
     setIsLoading(true);
 
     try {
+      // Strip commas from coverageAmount before sending
+      const cleanedData = {
+        ...formData,
+        coverageAmount: formData.coverageAmount.replace(/,/g, ""),
+      };
+
       const response = await fetch("/api/survey", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(cleanedData),
       });
 
       if (response.ok) {
