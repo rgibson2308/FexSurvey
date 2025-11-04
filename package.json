@@ -11,9 +11,8 @@
     ]
   },
   "scripts": {
-    "dev": "concurrently \"npm run dev:client\" \"npm run dev:server\" --kill-others",
-    "dev:client": "vite",
-    "dev:server": "PORT=3001 pnpm exec tsx server/index.ts",
+    "dev": "concurrently \"vite\" \"npm run dev:server\" --kill-others",
+    "dev:server": "sleep 2 && PORT=3001 node --loader tsx server/index.ts",
     "build": "npm run build:client && npm run build:server",
     "build:client": "vite build",
     "build:server": "vite build --config vite.config.server.ts",
