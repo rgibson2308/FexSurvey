@@ -28,13 +28,27 @@ export default function Survey() {
     whyLooking: "",
   });
 
+  const formatNumberWithCommas = (value: string): string => {
+    // Remove all non-digit characters
+    const digits = value.replace(/\D/g, "");
+    // Add commas every third digit from the right
+    return digits.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  };
+
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
+    let processedValue = value;
+
+    // Format coverage amount with commas
+    if (name === "coverageAmount") {
+      processedValue = formatNumberWithCommas(value);
+    }
+
     setFormData((prev) => ({
       ...prev,
-      [name]: value,
+      [name]: processedValue,
     }));
   };
 
