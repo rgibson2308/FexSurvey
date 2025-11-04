@@ -8,6 +8,8 @@ type SurveyStep = "form" | "success" | "error";
 interface FormData {
   fullName: string;
   age: string;
+  dateOfBirth: string;
+  address: string;
   productInterest: string;
   smoker: string;
   monthlyBudget: string;
@@ -21,6 +23,8 @@ export default function Survey() {
   const [formData, setFormData] = useState<FormData>({
     fullName: "",
     age: "",
+    dateOfBirth: "",
+    address: "",
     productInterest: "",
     smoker: "",
     monthlyBudget: "",
@@ -71,26 +75,24 @@ export default function Survey() {
     try {
       // Format coverage amount
       const cleanedCoverageAmount = formData.coverageAmount.replace(/,/g, "");
+      const cleanedMonthlyBudget = formData.monthlyBudget.replace(/,/g, "");
 
-      // Create formatted message for Formspree
-      const formattedMessage = `
-Full Name: ${formData.fullName}
+      // Create formatted message for Formspree in the required order
+      const formattedMessage = `Name: ${formData.fullName}
 Age: ${formData.age}
-Product Interested In: ${getProductLabel(formData.productInterest)}
+Date of Birth: ${formData.dateOfBirth}
+Current Address: ${formData.address}
 Smoker: ${formData.smoker === "yes" ? "Yes" : "No"}
-Monthly Budget (USD): $${formData.monthlyBudget}
-Coverage Amount Looking For (USD): $${cleanedCoverageAmount}
-
-Why Looking for Coverage:
-${formData.whyLooking}`;
+Product Type: ${getProductLabel(formData.productInterest)}
+Monthly Amount (USD): $${cleanedMonthlyBudget}
+Amount of Coverage (USD): $${cleanedCoverageAmount}
+Description: ${formData.whyLooking}`;
 
       // Prepare FormData for Formspree
       const formDataToSubmit = new FormData();
-      formDataToSubmit.append("email", "rgibson2308@gmail.com");
-      formDataToSubmit.append("name", formData.fullName);
       formDataToSubmit.append("message", formattedMessage);
 
-      const response = await fetch("https://formspree.io/f/mjkazygj", {
+      const response = await fetch("https://formspree.io/f/xpwogyyo", {
         method: "POST",
         body: formDataToSubmit,
       });
@@ -111,6 +113,8 @@ ${formData.whyLooking}`;
   const isFormValid =
     formData.fullName &&
     formData.age &&
+    formData.dateOfBirth &&
+    formData.address &&
     formData.productInterest &&
     formData.smoker &&
     formData.monthlyBudget &&
