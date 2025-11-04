@@ -340,13 +340,10 @@ Description: ${formData.whyLooking}`;
                 <Check className="w-8 h-8 text-green-600" />
               </div>
               <h2 className="text-3xl font-bold text-gray-900 mb-4">
-                Thanks! I'll review and reach out shortly.
+                Thank You for Choosing Gibson Life!
               </h2>
               <p className="text-lg text-gray-600 mb-8">
-                I've received your answers. I'll review options across multiple
-                top-rated carriers and email you shortly. If you have any time
-                constraints (e.g., closing on a home), feel free to reply to
-                the confirmation email so I can prioritize.
+                We appreciate your decision to go with us. Expect a call or text within the next 24-48 hours.
               </p>
               <a
                 href="/"
