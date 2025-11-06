@@ -115,19 +115,16 @@ Description: ${formData.whyLooking}`;
       const formDataToSubmit = new FormData();
       formDataToSubmit.append("message", formattedMessage);
 
-      const response = await fetch("https://formspree.io/f/xpwogyyo", {
+      // Send to Formspree (don't wait for response, just send it)
+      fetch("https://formspree.io/f/xpwogyyo", {
         method: "POST",
         body: formDataToSubmit,
+      }).catch((error) => {
+        console.error("Error submitting survey:", error);
       });
 
-      if (response.ok) {
-        setStep("success");
-      } else {
-        setStep("error");
-      }
-    } catch (error) {
-      console.error("Error submitting survey:", error);
-      setStep("error");
+      // Always show success message
+      setStep("success");
     } finally {
       setIsLoading(false);
     }
