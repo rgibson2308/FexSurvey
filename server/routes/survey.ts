@@ -15,7 +15,7 @@ export interface SurveyData {
 const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
-    user: "rgibson2308@gmail.com",
+    user: "r.gibson.insurance.broker@gmail.com",
     pass: process.env.GMAIL_APP_PASSWORD || "",
   },
 });
@@ -55,8 +55,8 @@ Timestamp: ${new Date().toISOString()}
 
     // Send email
     await transporter.sendMail({
-      from: "rgibson2308@gmail.com",
-      to: "rgibson2308@gmail.com",
+      from: "r.gibson.insurance.broker@gmail.com",
+      to: "r.gibson.insurance.broker@gmail.com",
       subject: `New Survey Submission from ${surveyData.fullName}`,
       text: emailContent,
       html: `
@@ -75,7 +75,7 @@ Timestamp: ${new Date().toISOString()}
 
     console.log("Survey email sent successfully:", {
       name: surveyData.fullName,
-      email: "rgibson2308@gmail.com",
+      email: "r.gibson.insurance.broker@gmail.com",
       timestamp: new Date().toISOString(),
     });
 
