@@ -373,26 +373,6 @@ Description: ${formData.whyLooking}`;
               </a>
             </div>
           )}
-
-          {step === "error" && (
-            <div className="text-center">
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">
-                Hmm, that didn't send.
-              </h2>
-              <p className="text-lg text-gray-600 mb-8">
-                Please try again or contact us at rgibson2308@gmail.com
-              </p>
-              <button
-                onClick={() => {
-                  setStep("form");
-                  window.scrollTo({ top: 0, behavior: "smooth" });
-                }}
-                className="inline-flex items-center justify-center gap-2 bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 hover:shadow-lg transition-all duration-200 hover:scale-105"
-              >
-                Back to form
-              </button>
-            </div>
-          )}
         </div>
       </main>
 
