@@ -25,10 +25,11 @@ export default function Contact() {
                   <div>
                     <p className="text-gray-600 text-sm">Email</p>
                     <a
-                      href="mailto:rgibson2308@gmail.com"
+                      href="mailto:r.gibson.insurance.broker@gmail.com"
                       className="text-gray-900 font-semibold hover:text-blue-600 transition-colors"
                     >
-                      rgibson2308@gmail.com
+                      r.gibson.insurance.broker@gmail.com
+                      <br />
                     </a>
                   </div>
                 </div>
