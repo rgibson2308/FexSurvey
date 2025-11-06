@@ -76,10 +76,10 @@ export default function Footer() {
             <h4 className="font-semibold text-white mb-4">Contact</h4>
             <p className="text-sm mb-2">
               <a
-                href="mailto:rgibson2308@gmail.com"
+                href="mailto:r.gibson.insurance.broker@gmail.com"
                 className="hover:text-white transition-colors"
               >
-                rgibson2308@gmail.com
+                r.gibson.insurance.broker@gmail.com
               </a>
             </p>
             <p className="text-sm mb-3">
