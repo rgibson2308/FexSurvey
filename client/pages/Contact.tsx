@@ -66,7 +66,7 @@ export default function Contact() {
                   </h3>
                   <p className="text-gray-600 text-sm mb-3">Currently licensed in:</p>
                   <div className="flex flex-wrap gap-2">
-                    {["AZ", "HI", "MN", "NM", "PA", "TX", "VA", "OH"].map(
+                    {["AZ", "HI", "CA", "SC", "MI", "MN", "NM", "PA", "TX", "VA", "OH"].map(
                       (state) => (
                         <span
                           key={state}
