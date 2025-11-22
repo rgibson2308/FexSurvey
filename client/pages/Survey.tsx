@@ -7,6 +7,8 @@ type SurveyStep = "form" | "success" | "error";
 
 interface FormData {
   fullName: string;
+  email: string;
+  phoneNumber: string;
   age: string;
   dateOfBirth: string;
   address: string;
@@ -23,6 +25,8 @@ export default function Survey() {
   const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState<FormData>({
     fullName: "",
+    email: "",
+    phoneNumber: "",
     age: "",
     dateOfBirth: "",
     address: "",
@@ -104,6 +108,8 @@ export default function Survey() {
 
       // Create formatted message for Formspree in the required order
       const formattedMessage = `Name: ${formData.fullName}
+Email: ${formData.email}
+Phone Number: ${formData.phoneNumber}
 Age: ${formData.age}
 Date of Birth: ${formData.dateOfBirth}
 Current Address: ${formData.address}
@@ -135,6 +141,8 @@ Description: ${formData.whyLooking}`;
 
   const isFormValid =
     formData.fullName &&
+    formData.email &&
+    formData.phoneNumber &&
     formData.age &&
     formData.dateOfBirth &&
     formData.address &&
@@ -185,6 +193,36 @@ Description: ${formData.whyLooking}`;
 
                 <div>
                   <label className="block text-lg font-semibold text-gray-900 mb-3">
+                    Email <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    placeholder="Your email address"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    required
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-lg font-semibold text-gray-900 mb-3">
+                    Phone Number <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="tel"
+                    name="phoneNumber"
+                    value={formData.phoneNumber}
+                    onChange={handleInputChange}
+                    placeholder="Your phone number"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    required
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-lg font-semibold text-gray-900 mb-3">
                     Age <span className="text-red-500">*</span>
                   </label>
                   <input
@@ -196,6 +234,7 @@ Description: ${formData.whyLooking}`;
                     min="18"
                     max="120"
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    disabled
                     required
                   />
                 </div>
