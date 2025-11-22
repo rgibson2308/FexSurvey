@@ -53,7 +53,10 @@ export default function Survey() {
     let age = today.getFullYear() - birthDate.getFullYear();
     const monthDiff = today.getMonth() - birthDate.getMonth();
 
-    if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+    if (
+      monthDiff < 0 ||
+      (monthDiff === 0 && today.getDate() < birthDate.getDate())
+    ) {
       age--;
     }
 
@@ -61,7 +64,9 @@ export default function Survey() {
   };
 
   const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+    >,
   ) => {
     const { name, value } = e.target;
     let processedValue = value;
@@ -335,7 +340,8 @@ Description: ${formData.whyLooking}`;
 
                 <div>
                   <label className="block text-lg font-semibold text-gray-900 mb-3">
-                    Product interested in <span className="text-red-500">*</span>
+                    Product interested in{" "}
+                    <span className="text-red-500">*</span>
                   </label>
                   <select
                     name="productInterest"
@@ -471,7 +477,8 @@ Description: ${formData.whyLooking}`;
                 Thank You for Choosing Gibson Life!
               </h2>
               <p className="text-lg text-gray-600 mb-8">
-                We appreciate your decision to go with us. Expect a call or text within the next 24-48 hours.
+                We appreciate your decision to go with us. Expect a call or text
+                within the next 24-48 hours.
               </p>
               <a
                 href="/"
